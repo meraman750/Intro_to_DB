@@ -1,5 +1,4 @@
 import mysql.connector
-from mysql.connector import Error
 
 try:
     connection = mysql.connector.connect(
@@ -13,8 +12,8 @@ try:
         cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
         print("Database 'alx_book_store' created successfully!")
 
-except Error as e:
-    print("Error while connecting to MySQL or creating database", e)
+except mysql.connector.Error as err:
+    print("Error while connecting to MySQL or creating database", err)
 
 finally:
     if connection.is_connected():

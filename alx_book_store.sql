@@ -4,7 +4,7 @@ CREATE DATABASE IF NOT EXISTS alx_book_store;USE alx_book_store;CREATE TABLE Boo
     author_id INT,
     price DOUBLE,
     publication_date DATE,
-    FOREIGN KEY (author_id) REFERENCE Authors(author_id)
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );CREATE TABLE Authors(
     author_id INT PRIMARY KEY,
     author_name VARCHAR(215)
@@ -17,12 +17,12 @@ CREATE DATABASE IF NOT EXISTS alx_book_store;USE alx_book_store;CREATE TABLE Boo
     order_id INT PRIMARY KEY,
     customer_id INT,
     order_date DATE,
-    FOREIGN KEY (customer_id) REFERENCE Customers(customer_id)
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );CREATE TABLE Order_Details (
     orderdetail_id INT PRIMARY KEY,
     order_id INT,
     book_id INT,
     quantity DOUBLE,
-    FOREIGN KEY (order_id) REFERENCE Orders(order_id),
-    FOREIGN KEY (book_id) REFERENCE Books(book_id),
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (book_id) REFERENCES Books(book_id),
 );
